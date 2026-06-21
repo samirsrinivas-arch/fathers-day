@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Daddy — Happy Father's Day</title>
+<style>
+  :root{
+    --ink-deep: #0E1E33;
+    --ink-mid: #16314F;
+    --blue: #2E5C8A;
+    --blue-light: #7FB3E0;
+    --brass: #D9A93D;
+    --brass-light: #ECC568;
+    --oxblood: #B6473F;
+    --paper: #F2EEE3;
+    --paper-line: #cfd8e3;
+    --ink: #16263D;
+    --text-bright: #FBFAF6;
+    --text-soft: #D7E2F0;
+  }
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink-deep);color:var(--text-bright);font-family:'IBM Plex Serif',Georgia,serif;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Arial Black','Helvetica Neue',sans-serif;font-weight:900;letter-spacing:-.01em;text-transform:uppercase}
+  .mono{font-family:'Courier New',monospace;letter-spacing:.04em}
+  a{color:inherit}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;background:radial-gradient(circle at 50% 35%,var(--ink-mid) 0%,var(--ink-deep) 72%);padding:40px 20px;text-align:center}
+  .hero-title{font-size:clamp(2.2rem,8vw,5rem);color:var(--text-bright);line-height:.95;margin-bottom:10px;text-shadow:0 4px 0 rgba(0,0,0,.35)}
+  .hero-sub{font-family:Georgia,serif;font-style:italic;color:var(--brass-light);font-size:clamp(1rem,2.5vw,1.3rem);margin-bottom:50px;text-transform:none;letter-spacing:0}
+  .drum-wrap{position:relative;width:min(280px,70vw);height:min(280px,70vw);margin-bottom:30px}
+  .drum-shell{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);width:92%;height:60px;background:linear-gradient(180deg,var(--blue),#173656);border-radius:0 0 14px 14px;box-shadow:0 14px 24px rgba(0,0,0,.5)}
+  .drum-shell::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(180deg,var(--brass-light),var(--brass))}
+  .drum-head{position:relative;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 38% 32%,#fff 0%,var(--paper) 55%,#d8dde6 100%);border:10px solid var(--brass);box-shadow:0 18px 36px rgba(0,0,0,.55),inset 0 0 0 4px rgba(255,255,255,.45),inset 0 -10px 30px rgba(0,0,0,.08);cursor:pointer;transition:transform .05s ease;display:flex;align-items:center;justify-content:center;user-select:none;-webkit-tap-highlight-color:transparent}
+  .drum-head:active{transform:scale(.97)}
+  .drum-head .label{font-family:'Courier New',monospace;color:var(--ink);opacity:.6;font-size:13px;letter-spacing:.15em;text-align:center;line-height:1.6}
+  .ripple{position:absolute;top:50%;left:50%;width:20px;height:20px;border-radius:50%;border:3px solid var(--blue);transform:translate(-50%,-50%) scale(0);opacity:.85;pointer-events:none}
+  .ripple.animate{animation:rippleOut .7s ease-out forwards}
+  @keyframes rippleOut{to{transform:translate(-50%,-50%) scale(7);opacity:0}}
+  .hit-counter{font-family:'Courier New',monospace;font-size:13px;color:var(--blue-light);opacity:.9;min-height:20px}
+  .scroll-cue{margin-top:40px;font-family:'Courier New',monospace;font-size:12px;letter-spacing:.2em;color:var(--text-soft);opacity:.75;animation:bob 2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+  /* SHARED */
+  section{padding:90px 20px;position:relative}
+  .section-inner{max-width:760px;margin:0 auto}
+  .eyebrow{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.25em;color:var(--blue-light);margin-bottom:14px}
+  .section-title{font-size:clamp(1.8rem,5vw,3rem);color:var(--text-bright);margin-bottom:30px;line-height:1.05}
+  .blueprint{background:var(--paper);color:var(--ink)}
+  .blueprint .eyebrow{color:var(--blue)}
+  .blueprint .section-title{color:var(--ink)}
+  .blueprint p,.blueprint li{color:#2A3A50}
+  .dim-line{display:flex;align-items:center;gap:10px;margin:8px 0 36px;color:var(--blue-light);font-family:'Courier New',monospace;font-size:11px;letter-spacing:.1em}
+  .blueprint .dim-line{color:var(--blue)}
+  .dim-line::before,.dim-line::after{content:'';flex:1;height:1px;background:currentColor;opacity:.4}
+
+  /* TIMELINE */
+  .timeline{list-style:none;border-left:2px dashed var(--blue-light);padding-left:30px;display:flex;flex-direction:column;gap:36px}
+  .timeline li{position:relative}
+  .timeline li::before{content:'';position:absolute;left:-37px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--brass);border:2px solid var(--ink-deep)}
+  .timeline .t-tag{font-family:'Courier New',monospace;font-size:11px;color:var(--blue-light);letter-spacing:.1em;display:block;margin-bottom:4px}
+  .timeline .t-body{font-size:1.05rem;line-height:1.55;color:var(--text-bright)}
+  .timeline .t-body strong{color:var(--brass-light)}
+
+  /* BLUEPRINT CARDS */
+  .blueprint-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:10px}
+  .bp-card{border:1.5px solid var(--blue);padding:22px 20px;position:relative;background:repeating-linear-gradient(0deg,transparent,transparent 23px,rgba(46,92,138,.07) 24px)}
+  .bp-card .bp-num{font-family:'Courier New',monospace;font-size:11px;color:var(--blue);margin-bottom:8px;letter-spacing:.1em}
+  .bp-card h3{font-size:1.05rem;color:var(--ink);margin-bottom:10px;text-transform:none;letter-spacing:0}
+  .bp-card p{font-size:.95rem;line-height:1.5;color:#34465e}
+
+  /* BADGES */
+  .badge-wrap{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  .badge{background:var(--blue);color:var(--text-bright);padding:10px 18px;border-radius:999px;font-family:'Courier New',monospace;font-size:12.5px;letter-spacing:.05em;border:1px solid rgba(255,255,255,.18)}
+
+  /* LETTER */
+  .letter{background:var(--paper);color:var(--ink);padding:50px 40px;border:1px solid var(--paper-line);box-shadow:0 20px 50px rgba(0,0,0,.35);font-size:1.08rem;line-height:1.75;position:relative}
+  .letter::before{content:'';position:absolute;top:0;left:28px;width:2px;height:100%;background:var(--blue);opacity:.3}
+  .letter p{margin-bottom:18px}
+  .letter .sign{font-family:Georgia,serif;font-style:italic;font-size:1.3rem;color:var(--oxblood);margin-top:10px}
+
+  /* DRUM KIT */
+  .kit-section{background:var(--ink-mid);text-align:center}
+  .kit-stage{position:relative;max-width:560px;margin:40px auto 10px;height:280px;display:flex;align-items:flex-end;justify-content:center;gap:14px}
+  .pad{border:none;cursor:pointer;font-family:'Courier New',monospace;font-size:12px;letter-spacing:.08em;color:var(--text-bright);border-radius:14px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;transition:transform .06s ease,filter .06s ease;-webkit-tap-highlight-color:transparent}
+  .pad:active{transform:scale(.95) translateY(2px);filter:brightness(1.3)}
+  .pad-kick{width:130px;height:130px;background:radial-gradient(circle at 35% 30%,#2E5C8A,var(--ink-deep));border:6px solid var(--brass);border-radius:50%}
+  .pad-snare{width:110px;height:160px;background:linear-gradient(160deg,#e3e8ef,#b7c2d1);color:var(--ink);border:5px solid var(--brass);border-radius:12px}
+  .pad-hihat{width:110px;height:110px;background:radial-gradient(circle at 40% 30%,#e8d98a,var(--brass));color:var(--ink-deep);border:5px solid var(--brass-light);border-radius:50% 50% 8px 8px}
+  .kit-hint{font-family:'Courier New',monospace;font-size:12px;color:var(--blue-light);opacity:.9;margin-top:18px}
+
+  /* OLD CIRCUIT PUZZLE */
+  .circuit-section{background:var(--ink-deep)}
+  .circuit-board{max-width:560px;margin:36px auto 0;background:var(--ink-mid);border:2px solid var(--blue);border-radius:10px;padding:36px 28px;position:relative}
+  .circuit-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+  .circuit-node{width:64px;height:64px;border-radius:8px;border:2px solid var(--blue-light);background:var(--ink-deep);display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:'Courier New',monospace;font-size:11px;color:var(--text-soft);transition:background .15s,border-color .15s,transform .1s;user-select:none}
+  .circuit-node:hover{transform:translateY(-2px)}
+  .circuit-node.on{background:var(--brass);border-color:var(--brass-light);color:var(--ink-deep);box-shadow:0 0 16px rgba(217,169,61,.6)}
+  .circuit-wire{height:3px;width:36px;background:var(--blue);opacity:.4;align-self:center}
+  .circuit-wire.on{background:var(--brass-light);opacity:1;box-shadow:0 0 8px rgba(236,197,104,.7)}
+  .bulb{width:80px;height:80px;margin:30px auto 0;border-radius:50%;border:3px solid var(--blue-light);background:radial-gradient(circle,#1a2c45,var(--ink-deep));display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:11px;color:var(--text-soft);transition:all .3s}
+  .bulb.lit{background:radial-gradient(circle,#fff7d6,var(--brass-light) 60%,var(--brass));color:var(--ink-deep);box-shadow:0 0 50px 12px rgba(236,197,104,.65);border-color:var(--brass-light)}
+  .circuit-hint{font-family:'Courier New',monospace;font-size:12px;color:var(--blue-light);opacity:.9;margin-top:28px;text-align:center}
+  .circuit-reset{margin:22px auto 0;display:block;background:transparent;border:1px solid var(--blue-light);color:var(--blue-light);font-family:'Courier New',monospace;font-size:11px;letter-spacing:.1em;padding:8px 16px;border-radius:4px;cursor:pointer}
+  .circuit-reset:hover{background:rgba(127,179,224,.1)}
+
+  /* DAD CIRCUIT — Father's Day themed */
+  .dad-circuit-section{background:var(--ink-mid)}
+  .dad-circuit-board{max-width:600px;margin:36px auto 0;background:var(--ink-deep);border:2px solid var(--blue);border-radius:12px;padding:32px 24px}
+  .dad-circuit-desc{color:var(--text-soft);font-size:.95rem;line-height:1.6;text-align:center;max-width:500px;margin:0 auto 28px}
+  .dc-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0;row-gap:16px}
+  .dc-trait{
+    padding:12px 16px;border-radius:8px;border:2px solid var(--blue);background:var(--ink-mid);
+    font-family:'Courier New',monospace;font-size:12px;color:var(--text-soft);
+    cursor:pointer;transition:all .2s;text-align:center;user-select:none;letter-spacing:.04em
+  }
+  .dc-trait:hover{border-color:var(--blue-light);color:var(--text-bright);transform:scale(1.03)}
+  .dc-trait.active{background:var(--blue);border-color:var(--blue-light);color:var(--text-bright);box-shadow:0 0 14px rgba(46,92,138,.7)}
+  .dc-wire-col{display:flex;flex-direction:column;align-items:center;gap:0;padding:0 10px}
+  .dc-wire-seg{width:3px;background:var(--blue);opacity:.35;transition:all .3s}
+  .dc-wire-seg.lit{background:var(--brass-light);opacity:1;box-shadow:0 0 6px rgba(236,197,104,.8)}
+  .dc-output{
+    max-width:600px;margin:28px auto 0;
+    background:var(--ink-mid);border:2px solid var(--blue);border-radius:10px;
+    padding:22px 24px;min-height:80px;
+    display:flex;flex-direction:column;justify-content:center;
+    transition:border-color .3s
+  }
+  .dc-output.lit{border-color:var(--brass);box-shadow:0 0 30px rgba(217,169,61,.2)}
+  .dc-output-label{font-family:'Courier New',monospace;font-size:11px;color:var(--blue-light);letter-spacing:.12em;margin-bottom:8px}
+  .dc-output.lit .dc-output-label{color:var(--brass-light)}
+  .dc-output-msg{font-size:1.05rem;line-height:1.6;color:var(--text-bright);font-style:italic}
+  .dc-hint{font-family:'Courier New',monospace;font-size:12px;color:var(--blue-light);opacity:.85;margin-top:22px;text-align:center}
+  .dc-reset{margin:16px auto 0;display:block;background:transparent;border:1px solid var(--blue-light);color:var(--blue-light);font-family:'Courier New',monospace;font-size:11px;letter-spacing:.1em;padding:8px 16px;border-radius:4px;cursor:pointer}
+  .dc-reset:hover{background:rgba(127,179,224,.1)}
+
+  /* DRONE */
+  .plane-section{background:var(--paper);color:var(--ink)}
+  .drone-builder{max-width:520px;margin:36px auto 0}
+  .drone-steps{display:flex;flex-direction:column;gap:16px;margin-bottom:28px}
+  .drone-step{display:flex;align-items:center;gap:16px;border:1.5px solid var(--blue);border-radius:8px;padding:14px 18px;background:repeating-linear-gradient(0deg,transparent,transparent 23px,rgba(46,92,138,.06) 24px);cursor:pointer;transition:background .15s,border-color .15s,opacity .15s;user-select:none}
+  .drone-step.locked{opacity:.4;cursor:not-allowed}
+  .drone-step.done{border-color:var(--brass);background:rgba(217,169,61,.08);cursor:default}
+  .drone-step:not(.locked):not(.done):hover{background:rgba(46,92,138,.1)}
+  .drone-step:not(.locked):not(.done):active{transform:scale(.98)}
+  .step-icon{width:52px;height:52px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--blue);font-size:24px}
+  .drone-step.done .step-icon{background:var(--brass)}
+  .step-text{flex:1}
+  .step-label{font-family:'Courier New',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;margin-bottom:3px}
+  .drone-step.done .step-label{color:var(--brass)}
+  .step-name{font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:2px}
+  .step-desc{font-size:.88rem;color:#45607a;line-height:1.4}
+  .step-check{font-size:20px;flex-shrink:0;color:var(--brass);opacity:0;transition:opacity .2s}
+  .drone-step.done .step-check{opacity:1}
+  .drone-preview{position:relative;width:200px;height:200px;margin:0 auto 18px}
+  .drone-svg-layer{position:absolute;inset:0;transition:opacity .3s}
+  .drone-svg-layer.hidden{opacity:0}
+  .drone-status{text-align:center;font-family:'Courier New',monospace;font-size:12px;color:var(--blue);margin-top:4px}
+  .drone-status.done{color:var(--oxblood);font-weight:700}
+  .plane-reset{margin:18px auto 0;display:block;background:transparent;border:1px solid var(--blue);color:var(--blue);font-family:'Courier New',monospace;font-size:11px;letter-spacing:.1em;padding:8px 16px;border-radius:4px;cursor:pointer}
+  .plane-reset:hover{background:rgba(46,92,138,.08)}
+
+  /* ROCKET */
+  .rocket-section{background:var(--ink-deep);position:relative;overflow:hidden}
+  .starfield{position:absolute;inset:0;pointer-events:none}
+  .star-dot{position:absolute;border-radius:50%;background:white}
+  .rocket-inner{max-width:560px;margin:0 auto;position:relative;z-index:2;text-align:center}
+  .rocket-canvas{position:relative;height:260px;display:flex;align-items:flex-end;justify-content:center;margin:32px auto 0}
+  #rocketSVG{transition:transform .1s ease;transform-origin:bottom center;position:relative;z-index:3}
+  #rocketSVG.ignite{animation:rocketShake .15s infinite alternate}
+  @keyframes rocketShake{from{transform:translateX(-2px)}to{transform:translateX(2px)}}
+  #rocketSVG.launch{animation:rocketLaunch 2s ease-in forwards}
+  @keyframes rocketLaunch{0%{transform:translateY(0) scale(1)}15%{transform:translateY(10px) scale(.98)}40%{transform:translateY(-100px) scale(.9)}100%{transform:translateY(-600px) scale(.4);opacity:0}}
+  .flame{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);width:18px;opacity:0;transition:opacity .2s}
+  .flame.on{opacity:1;animation:flamePulse .12s alternate infinite}
+  @keyframes flamePulse{from{transform:translateX(-50%) scaleY(.85)}to{transform:translateX(-50%) scaleY(1.15)}}
+  .launch-pad{width:120px;height:12px;background:linear-gradient(90deg,#1a2c45,var(--blue),#1a2c45);border-radius:4px;position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:2}
+  .launch-pad::before{content:'';position:absolute;bottom:12px;left:50%;transform:translateX(-50%);width:4px;height:24px;background:var(--blue)}
+  .rocket-form{margin-top:28px}
+  .rocket-label{font-family:'Courier New',monospace;font-size:12px;color:var(--blue-light);letter-spacing:.15em;margin-bottom:10px;display:block}
+  .rocket-textarea{width:100%;background:var(--ink-mid);border:1.5px solid var(--blue);border-radius:8px;color:var(--text-bright);font-family:Georgia,serif;font-size:1rem;line-height:1.6;padding:14px 16px;resize:none;outline:none;transition:border-color .15s}
+  .rocket-textarea:focus{border-color:var(--brass)}
+  .rocket-textarea::placeholder{color:rgba(127,179,224,.45);font-style:italic}
+  .rocket-char{font-family:'Courier New',monospace;font-size:10px;color:var(--blue-light);opacity:.6;text-align:right;margin-top:4px}
+  .rocket-btn{margin-top:16px;background:var(--brass);color:var(--ink-deep);border:none;font-family:'Courier New',monospace;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;padding:14px 28px;border-radius:4px;cursor:pointer;transition:background .15s,transform .15s}
+  .rocket-btn:hover:not(:disabled){background:var(--brass-light);transform:translateY(-2px)}
+  .rocket-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  .rocket-status{margin-top:18px;font-family:'Courier New',monospace;font-size:12px;color:var(--blue-light);min-height:18px;letter-spacing:.1em}
+  .rocket-status.sent{color:var(--brass-light)}
+  .msg-star{position:fixed;font-size:14px;pointer-events:none;animation:msgStarFly linear forwards}
+  @keyframes msgStarFly{from{opacity:1}to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.3)}}
+
+  /* ===== DAD STATS ===== */
+  .stats-section{background:var(--ink-mid)}
+  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:32px}
+  .stat-card{background:var(--ink-deep);border:1.5px solid var(--blue);border-radius:10px;padding:24px 20px;text-align:center;cursor:pointer;transition:border-color .2s,transform .2s;user-select:none}
+  .stat-card:hover{border-color:var(--brass);transform:translateY(-3px)}
+  .stat-card.revealed{border-color:var(--brass);background:rgba(217,169,61,.07)}
+  .stat-icon{font-size:28px;margin-bottom:10px}
+  .stat-label{font-family:'Courier New',monospace;font-size:10px;color:var(--blue-light);letter-spacing:.15em;margin-bottom:6px}
+  .stat-value{font-family:'Arial Black',sans-serif;font-size:1.9rem;color:var(--brass-light);line-height:1;margin-bottom:6px;transition:transform .3s}
+  .stat-card.revealed .stat-value{animation:statPop .3s ease-out}
+  @keyframes statPop{0%{transform:scale(.7)}70%{transform:scale(1.1)}100%{transform:scale(1)}}
+  .stat-desc{font-size:.82rem;color:var(--text-soft);line-height:1.4;min-height:36px}
+  .stats-hint{font-family:'Courier New',monospace;font-size:12px;color:var(--blue-light);opacity:.8;margin-top:22px;text-align:center}
+
+  /* ===== MEMORY REVEAL ===== */
+  .memory-section{background:var(--ink-deep)}
+  .memory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:32px}
+  .memory-card{position:relative;height:160px;cursor:pointer;user-select:none;perspective:600px}
+  .memory-card-inner{position:absolute;inset:0;transition:transform .55s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}
+  .memory-card.flipped .memory-card-inner{transform:rotateY(180deg)}
+  .memory-front,.memory-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:18px}
+  .memory-front{background:var(--ink-mid);border:2px solid var(--blue);flex-direction:column;gap:10px}
+  .memory-front-icon{font-size:32px}
+  .memory-front-label{font-family:'Courier New',monospace;font-size:11px;color:var(--blue-light);letter-spacing:.1em;text-align:center}
+  .memory-back{background:var(--brass);border:2px solid var(--brass-light);transform:rotateY(180deg);color:var(--ink-deep);font-size:.95rem;line-height:1.55;text-align:center;font-style:italic}
+  .memory-hint{font-family:'Courier New',monospace;font-size:12px;color:var(--blue-light);opacity:.8;margin-top:20px;text-align:center}
+
+
+
+  /* CONFETTI + CELEBRATE */
+  .confetti-piece{position:fixed;top:-20px;width:10px;height:16px;opacity:.95;pointer-events:none;z-index:999;animation:confettiFall linear forwards}
+  @keyframes confettiFall{to{transform:translateY(110vh) rotate(540deg);opacity:.2}}
+  .celebrate-overlay{position:fixed;inset:0;background:rgba(14,30,51,.78);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity .25s}
+  .celebrate-overlay.show{opacity:1;pointer-events:auto}
+  .celebrate-card{background:var(--paper);color:var(--ink);padding:44px 38px;border-radius:14px;text-align:center;max-width:360px;box-shadow:0 30px 60px rgba(0,0,0,.5);transform:scale(.85);transition:transform .25s;border:3px solid var(--brass)}
+  .celebrate-overlay.show .celebrate-card{transform:scale(1)}
+  .celebrate-card h3{font-size:1.6rem;color:var(--ink);margin-bottom:12px;text-transform:none;letter-spacing:0}
+  .celebrate-card p{font-family:'Courier New',monospace;font-size:13px;color:var(--blue);letter-spacing:.05em;margin-bottom:22px}
+  .celebrate-close{background:var(--brass);color:var(--ink-deep);border:none;font-family:'Courier New',monospace;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;padding:12px 24px;border-radius:4px;cursor:pointer}
+  .celebrate-close:hover{background:var(--brass-light)}
+
+  @keyframes droneTakeoff{0%{transform:translate(0,0) scale(1);opacity:1}25%{transform:translate(0,-18vh) scale(1.02);opacity:1}55%{transform:translate(15vw,-45vh) scale(.85);opacity:1}100%{transform:translate(70vw,-95vh) scale(.35);opacity:0}}
+
+  /* FINALE */
+  .finale{text-align:center;padding-bottom:130px}
+  .finale .section-title{margin-bottom:16px}
+  .finale p{color:var(--text-soft);font-size:1.05rem;max-width:500px;margin:0 auto 36px}
+  .btn{display:inline-block;background:var(--brass);color:var(--ink-deep);font-family:'Courier New',monospace;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;padding:16px 30px;border:none;border-radius:4px;cursor:pointer;transition:transform .15s,background .15s}
+  .btn:hover{background:var(--brass-light);transform:translateY(-2px)}
+  .btn:focus-visible,a:focus-visible,button:focus-visible,.drum-head:focus-visible,.circuit-node:focus-visible{outline:3px solid var(--blue-light);outline-offset:3px}
+  .credit{text-align:center;font-family:'Courier New',monospace;font-size:11px;color:var(--text-soft);opacity:.45;padding-bottom:30px;letter-spacing:.1em}
+  .star{position:absolute;color:var(--brass-light);opacity:.7;pointer-events:none;font-size:14px}
+
+  @media(max-width:480px){
+    .kit-stage{gap:8px;transform:scale(.85)}
+    .letter{padding:34px 22px}
+    .circuit-board{padding:26px 16px}
+    .circuit-node{width:54px;height:54px;font-size:10px}
+    .circuit-wire{width:18px}
+    .dc-grid{grid-template-columns:1fr auto 1fr}
+
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <span class="star" style="top:12%;left:10%">✦</span>
+  <span class="star" style="top:22%;left:85%">✧</span>
+  <span class="star" style="top:75%;left:8%">✧</span>
+  <span class="star" style="top:80%;left:88%">✦</span>
+  <span class="star" style="top:8%;left:50%">✧</span>
+  <h1 class="hero-title">Happy<br>Father's<br>Day, Daddy</h1>
+  <p class="hero-sub">go ahead. hit it.</p>
+  <div class="drum-wrap">
+    <div class="drum-shell"></div>
+    <div class="drum-head" id="heroDrum" role="button" tabindex="0" aria-label="Tap the drum head">
+      <span class="ripple" id="heroRipple"></span>
+      <span class="label mono">TAP<br>HERE</span>
+    </div>
+  </div>
+  <div class="hit-counter mono" id="hitCounter">&nbsp;</div>
+  <div class="scroll-cue mono">↓ SCROLL FOR THE SETLIST ↓</div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <div class="section-inner">
+    <div class="eyebrow mono">TRACK 01</div>
+    <h2 class="section-title">The Drummer</h2>
+    <div class="dim-line">SOUNDCHECK</div>
+    <ul class="timeline">
+      <li>
+        <span class="t-tag mono">THEN</span>
+        <p class="t-body">Before you were "Daddy," you were the guy <strong>behind the kit</strong> — the one keeping time so everyone else could shine. Turns out that's just always been your job.</p>
+      </li>
+      <li>
+        <span class="t-tag mono">ALWAYS</span>
+        <p class="t-body">You never stopped loving music. Doesn't matter the genre — if it's got a good rhythm, you're tapping along on the steering wheel, the counter, the table, anything within reach.</p>
+      </li>
+      <li>
+        <span class="t-tag mono">NOW</span>
+        <p class="t-body">You taught me that <strong>tempo is everything</strong> — in music, and honestly in life too. Steady hands, steady beat, steady person. That's you.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- BLUEPRINT -->
+<section class="blueprint">
+  <div class="section-inner">
+    <div class="eyebrow mono">TRACK 02</div>
+    <h2 class="section-title">The Engineer</h2>
+    <div class="dim-line">SPEC SHEET</div>
+    <p style="margin-bottom:26px;font-size:1.05rem;line-height:1.6">
+      You're the guy who can't look at a problem without wanting to take it apart and rebuild it better. I used to come find you in your office just to ask you to explain what you were working on — and I'd sit there completely hooked, even when I barely understood half of it. Looking back, that's exactly where my love for engineering started.
+    </p>
+    <div class="blueprint-grid">
+      <div class="bp-card"><div class="bp-num mono">FIG. 01</div><h3>Builder by nature</h3><p>If it's broken, you fix it. If it doesn't exist yet, you build it. There is no third option.</p></div>
+      <div class="bp-card"><div class="bp-num mono">FIG. 02</div><h3>The office visits</h3><p>I'd ask you to explain your work, and you always did — patiently, like it was the most important meeting of your day. That curiosity you handed me never left.</p></div>
+      <div class="bp-card"><div class="bp-num mono">FIG. 03</div><h3>You always encouraged this</h3><p>Every time I leaned toward engineering, you pushed me further — never once made me feel like I had to convince you it was the right path.</p></div>
+      <div class="bp-card"><div class="bp-num mono">FIG. 04</div><h3>Our shared language</h3><p>I genuinely love talking engineering with you. We can go an hour and it still feels like bonding, not work.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OLD CIRCUIT PUZZLE -->
+<section class="circuit-section">
+  <div class="section-inner">
+    <div class="eyebrow mono">TRACK 02.5</div>
+    <h2 class="section-title">Close the Circuit</h2>
+    <p style="color:var(--text-soft);max-width:480px;margin:0 auto;text-align:center">
+      Tap each node in order, left to right, to complete the circuit and light the bulb.
+    </p>
+    <div class="circuit-board">
+      <div class="circuit-row" id="circuitRow">
+        <div class="circuit-node mono" data-index="0" tabindex="0" role="button" aria-label="Power source">PWR</div>
+        <div class="circuit-wire" data-wire="0"></div>
+        <div class="circuit-node mono" data-index="1" tabindex="0" role="button" aria-label="Resistor">R1</div>
+        <div class="circuit-wire" data-wire="1"></div>
+        <div class="circuit-node mono" data-index="2" tabindex="0" role="button" aria-label="Switch">SW</div>
+      </div>
+      <div class="bulb mono" id="bulb">○</div>
+    </div>
+    <div class="circuit-hint mono" id="circuitHint">0 / 3 NODES CONNECTED</div>
+    <button class="circuit-reset mono" id="circuitReset">RESET CIRCUIT</button>
+  </div>
+</section>
+
+<!-- DAD CIRCUIT -->
+<section class="dad-circuit-section">
+  <div class="section-inner">
+    <div class="eyebrow mono">TRACK 02.75</div>
+    <h2 class="section-title">Wire Up Dad</h2>
+    <p class="dad-circuit-desc">
+      Every great person runs on certain traits. Tap the ones that power you up — watch the circuit light and see what Samita says about each one.
+    </p>
+    <div class="dad-circuit-board">
+      <div class="dc-grid" id="dcGrid">
+        <!-- rows injected by JS -->
+      </div>
+      <div class="dc-output" id="dcOutput">
+        <div class="dc-output-label mono" id="dcOutputLabel">OUTPUT — TAP A TRAIT TO READ IT</div>
+        <div class="dc-output-msg" id="dcOutputMsg">Select any trait above to complete the circuit and see what it means to me.</div>
+      </div>
+    </div>
+    <div class="dc-hint mono" id="dcHint">TAP ANY TRAIT — CIRCUIT ACTIVATES INSTANTLY</div>
+    <button class="dc-reset mono" id="dcReset">RESET CIRCUIT</button>
+  </div>
+</section>
+
+<!-- GIRL DAD -->
+<section>
+  <div class="section-inner">
+    <div class="eyebrow mono">TRACK 03</div>
+    <h2 class="section-title">The Girl Dad</h2>
+    <div class="dim-line">CERTIFIED, TRAINED, APPROVED</div>
+    <p style="font-size:1.05rem;line-height:1.65;color:var(--text-bright);margin-bottom:10px">
+      Two daughters raised you right. You didn't just learn to braid hair and survive the drama — you actually listened, and it changed you. We like to joke that we "trained" you into a feminist, but honestly? You were always willing to learn, which is the whole trick.
+    </p>
+    <div class="badge-wrap">
+      <span class="badge mono">CERTIFIED GIRL DAD</span>
+      <span class="badge mono">LISTENS WHEN IT MATTERS</span>
+      <span class="badge mono">SHOWS UP</span>
+      <span class="badge mono">ALWAYS LEARNING</span>
+      <span class="badge mono">FUNDS THE CLOSET</span>
+    </div>
+  </div>
+</section>
+
+<!-- DAD STATS -->
+<section class="stats-section">
+  <div class="section-inner">
+    <div class="eyebrow mono">TRACK 03.25</div>
+    <h2 class="section-title">Dad by the Numbers</h2>
+    <p style="color:var(--text-soft);max-width:480px;margin:0 auto;text-align:center">
+      Behind every great dad is a very impressive set of stats. Tap each card to reveal yours.
+    </p>
+    <div class="stats-grid" id="statsGrid"><!-- injected by JS --></div>
+    <div class="stats-hint mono">TAP EACH CARD TO REVEAL</div>
+  </div>
+</section>
+
+<!-- DRONE BUILDER -->
+<section class="plane-section">
+  <div class="section-inner">
+    <div class="eyebrow mono">TRACK 03.5</div>
+    <h2 class="section-title" style="color:var(--ink)">The Drone You Built</h2>
+    <div class="dim-line">ASSEMBLY REQUIRED</div>
+    <p style="margin-bottom:26px;font-size:1.05rem;line-height:1.6;color:#2A3A50">
+      You still talk about the drone you built when you were younger — and honestly, I'm in awe every time you tell that story. It's part of what motivates me to keep building things too. Click each part to assemble it, then watch it take off.
+    </p>
+    <div class="drone-builder">
+      <div class="drone-preview" id="dronePreview">
+        <svg width="200" height="200" viewBox="0 0 200 200" style="position:absolute;inset:0;opacity:.12"><circle cx="100" cy="100" r="18" fill="#2E5C8A"/></svg>
+        <svg class="drone-svg-layer hidden" id="layerArms" width="200" height="200" viewBox="0 0 200 200"><line x1="30" y1="30" x2="170" y2="170" stroke="#2E5C8A" stroke-width="10" stroke-linecap="round"/><line x1="170" y1="30" x2="30" y2="170" stroke="#2E5C8A" stroke-width="10" stroke-linecap="round"/></svg>
+        <svg class="drone-svg-layer hidden" id="layerHub" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="22" fill="#0E1E33" stroke="#2E5C8A" stroke-width="4"/><circle cx="100" cy="100" r="10" fill="#2E5C8A"/></svg>
+        <svg class="drone-svg-layer hidden" id="layerRotors" width="200" height="200" viewBox="0 0 200 200"><circle cx="30" cy="30" r="18" fill="none" stroke="#D9A93D" stroke-width="3" stroke-dasharray="6 3"/><circle cx="170" cy="30" r="18" fill="none" stroke="#D9A93D" stroke-width="3" stroke-dasharray="6 3"/><circle cx="30" cy="170" r="18" fill="none" stroke="#D9A93D" stroke-width="3" stroke-dasharray="6 3"/><circle cx="170" cy="170" r="18" fill="none" stroke="#D9A93D" stroke-width="3" stroke-dasharray="6 3"/><line x1="17" y1="30" x2="43" y2="30" stroke="#D9A93D" stroke-width="2"/><line x1="30" y1="17" x2="30" y2="43" stroke="#D9A93D" stroke-width="2"/><line x1="157" y1="30" x2="183" y2="30" stroke="#D9A93D" stroke-width="2"/><line x1="170" y1="17" x2="170" y2="43" stroke="#D9A93D" stroke-width="2"/><line x1="17" y1="170" x2="43" y2="170" stroke="#D9A93D" stroke-width="2"/><line x1="30" y1="157" x2="30" y2="183" stroke="#D9A93D" stroke-width="2"/><line x1="157" y1="170" x2="183" y2="170" stroke="#D9A93D" stroke-width="2"/><line x1="170" y1="157" x2="170" y2="183" stroke="#D9A93D" stroke-width="2"/></svg>
+      </div>
+      <div class="drone-steps" id="droneSteps">
+        <div class="drone-step" id="droneStep0" data-step="0"><div class="step-icon">✕</div><div class="step-text"><div class="step-label mono">STEP 01 — CLICK TO ATTACH</div><div class="step-name">Carbon Fibre Arms</div><div class="step-desc">The X-frame that holds everything together — the skeleton of the whole build.</div></div><div class="step-check">✓</div></div>
+        <div class="drone-step locked" id="droneStep1" data-step="1"><div class="step-icon">⬡</div><div class="step-text"><div class="step-label mono">STEP 02 — LOCKED</div><div class="step-name">Central Hub</div><div class="step-desc">The flight controller lives here — the brain of the drone.</div></div><div class="step-check">✓</div></div>
+        <div class="drone-step locked" id="droneStep2" data-step="2"><div class="step-icon">◎</div><div class="step-text"><div class="step-label mono">STEP 03 — LOCKED</div><div class="step-name">Rotors × 4</div><div class="step-desc">Spin up the motors. This is what makes it fly.</div></div><div class="step-check">✓</div></div>
+      </div>
+      <div class="drone-status mono" id="droneStatus">0 / 3 PARTS INSTALLED</div>
+      <button class="plane-reset mono" id="droneReset">RESET DRONE</button>
+    </div>
+  </div>
+</section>
+
+<!-- MEMORY REVEAL -->
+<section class="memory-section">
+  <div class="section-inner">
+    <div class="eyebrow mono">TRACK 03.6</div>
+    <h2 class="section-title">Memories, Unlocked</h2>
+    <p style="color:var(--text-soft);max-width:480px;margin:0 auto;text-align:center">
+      Six memories I keep close. Flip each card to read it.
+    </p>
+    <div class="memory-grid" id="memoryGrid"><!-- injected by JS --></div>
+    <div class="memory-hint mono" id="memoryHint">0 / 6 MEMORIES UNLOCKED — FLIP A CARD</div>
+  </div>
+</section>
+
+<!-- ROCKET -->
+<section class="rocket-section">
+  <div class="starfield" id="starfield"></div>
+  <div class="section-inner rocket-inner">
+    <div class="eyebrow mono">TRACK 03.75</div>
+    <h2 class="section-title">Send It to Space</h2>
+    <p style="color:var(--text-soft);max-width:460px;margin:0 auto">
+      You're the one who got me looking up at the sky. Write a message to the stars — then hit launch and watch it go.
+    </p>
+    <div class="rocket-canvas" id="rocketCanvas">
+      <div class="launch-pad"></div>
+      <div style="position:relative;display:inline-block">
+        <svg id="rocketSVG" width="60" height="120" viewBox="0 0 60 120" fill="none">
+          <path d="M30 4 C18 18 12 50 12 80 L48 80 C48 50 42 18 30 4Z" fill="#FBFAF6" stroke="#2E5C8A" stroke-width="2"/>
+          <path d="M30 4 C26 14 24 30 24 45 L30 45 Z" fill="#D7E2F0" opacity=".5"/>
+          <circle cx="30" cy="52" r="8" fill="#2E5C8A" stroke="#7FB3E0" stroke-width="2"/>
+          <circle cx="30" cy="52" r="4" fill="#7FB3E0" opacity=".6"/>
+          <path d="M12 80 L2 105 L18 90 Z" fill="#2E5C8A"/>
+          <path d="M48 80 L58 105 L42 90 Z" fill="#2E5C8A"/>
+          <rect x="22" y="80" width="16" height="10" rx="2" fill="#D9A93D"/>
+          <ellipse cx="30" cy="90" rx="8" ry="4" fill="#ECC568" opacity=".8"/>
+        </svg>
+        <svg class="flame" id="rocketFlame" width="18" height="32" viewBox="0 0 18 32">
+          <path d="M9 2 C6 8 2 14 3 22 C4 28 9 32 9 32 C9 32 14 28 15 22 C16 14 12 8 9 2Z" fill="#ECC568"/>
+          <path d="M9 10 C7 14 6 18 7 23 C8 27 9 30 9 30 C9 30 10 27 11 23 C12 18 11 14 9 10Z" fill="#D9A93D"/>
+          <path d="M9 18 C8 20 8 24 9 28 C9 28 10 24 10 20 Z" fill="#B6473F" opacity=".7"/>
+        </svg>
+      </div>
+    </div>
+    <div class="rocket-form">
+      <label class="rocket-label mono" for="rocketMsg">YOUR MESSAGE TO THE STARS</label>
+      <textarea class="rocket-textarea" id="rocketMsg" rows="3" maxlength="160" placeholder="Happy Father's Day, Daddy — love you to the moon and back…"></textarea>
+      <div class="rocket-char mono" id="rocketChar">0 / 160</div>
+      <button class="rocket-btn" id="rocketLaunchBtn">🚀 LAUNCH</button>
+    </div>
+    <div class="rocket-status mono" id="rocketStatus">&nbsp;</div>
+  </div>
+</section>
+
+<!-- THE LETTER -->
+<section class="blueprint" style="padding-top:60px">
+  <div class="section-inner">
+    <div class="eyebrow mono">TRACK 04</div>
+    <h2 class="section-title">From Samita, With Love</h2>
+    <div class="letter" id="letterBox">
+      <p>Happy Father's Day, Daddy! Thank you for being the best father ever. I love bonding over anything engineering-related with you — I can always see your passion for engineering and innovation shine through whenever we talk about it, and it deeply motivates me to keep innovating and to use my engineering major to do good things in life.</p>
+      <p>I always think about how you and Mommy came to the US and built such a great life for Sanju and me. Your sacrifices are not unnoticed, and I hold them close every day. It pushes me to keep working so I can make you both the proudest parents ever, and I get so happy whenever you notice any engineering accomplishment of mine (I secretly love the praise I get from you — I've looked up to you in this field for as long as I can remember, lol).</p>
+      <p>Thank you for always funding my closet and my random hobbies. I hope to repay all the money I've robbed from you, LOL. What can I say — I'm a high-maintenance girl, but you set the standard high since you always want to give me what I want, even when it's silly. I love hearing your silly jokes, or calling you just to sit in silence on the phone because I want the company. Thank you for always "helping me" whenever I ask — when really, I just want you by my side.</p>
+      <p>You've inspired my passions, from engineering to my love of space. I love you to the moon and back.</p>
+      <p class="sign">Love,<br>Samita</p>
+    </div>
+  </div>
+</section>
+
+<!-- DRUM KIT -->
+<section class="kit-section">
+  <div class="section-inner">
+    <div class="eyebrow mono">BONUS TRACK</div>
+    <h2 class="section-title">Sit In For a Take</h2>
+    <p style="color:var(--text-soft);max-width:480px;margin:0 auto">
+      One more kit for you. Click the pads, or use your keyboard — <span class="mono">J</span> kick, <span class="mono">K</span> snare, <span class="mono">L</span> hi-hat.
+    </p>
+    <div class="kit-stage">
+      <button class="pad pad-hihat mono" id="padHihat" aria-label="Hi-hat">HI-HAT<br>L</button>
+      <button class="pad pad-kick mono" id="padKick" aria-label="Kick drum">KICK<br>J</button>
+      <button class="pad pad-snare mono" id="padSnare" aria-label="Snare drum">SNARE<br>K</button>
+    </div>
+    <div class="kit-hint mono">no sound on mute / silent devices — turn it up if you can 🥁</div>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section class="finale">
+  <div class="section-inner">
+    <div class="eyebrow mono">ENCORE</div>
+    <h2 class="section-title">Happy Father's Day, Daddy</h2>
+    <p>Thanks for keeping the time, building the things, reaching for the stars, and raising us right. Here's to many more tracks together — love you to the moon and back.</p>
+    <a href="#top" class="btn mono">↑ PLAY IT AGAIN</a>
+  </div>
+</section>
+
+<div class="credit mono">MADE WITH LOVE (AND A LITTLE JAVASCRIPT) — FROM SAMITA</div>
+
+<div class="celebrate-overlay" id="celebrateOverlay" role="dialog">
+  <div class="celebrate-card">
+    <h3 id="celebrateTitle">Happy Father's Day! 🎉</h3>
+    <p class="mono" id="celebrateMsg">CIRCUIT COMPLETE — NICE WORK, ENGINEER</p>
+    <button class="celebrate-close mono" id="celebrateClose">CLOSE</button>
+  </div>
+</div>
+
+<script>
+// ── CONFETTI & CELEBRATE ─────────────────────────────────────────────────────
+const confettiColors=['#D9A93D','#ECC568','#7FB3E0','#2E5C8A','#FBFAF6','#B6473F'];
+function launchConfetti(){
+  for(let i=0;i<60;i++){
+    const p=document.createElement('div');p.className='confetti-piece';
+    const dur=1.8+Math.random()*1.4,del=Math.random()*.3;
+    p.style.cssText=`left:${Math.random()*100}vw;background:${confettiColors[Math.floor(Math.random()*confettiColors.length)]};animation-duration:${dur}s;animation-delay:${del}s;border-radius:${Math.random()>.5?'50%':'2px'}`;
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),(dur+del)*1000+200);
+  }
+}
+const celebrateOverlay=document.getElementById('celebrateOverlay');
+const celebrateTitle=document.getElementById('celebrateTitle');
+const celebrateMsg=document.getElementById('celebrateMsg');
+function showCelebration(title,msg){
+  launchConfetti();
+  if(title) celebrateTitle.textContent=title;
+  if(msg) celebrateMsg.textContent=msg;
+  celebrateOverlay.classList.add('show');
+}
+document.getElementById('celebrateClose').addEventListener('click',()=>celebrateOverlay.classList.remove('show'));
+celebrateOverlay.addEventListener('click',e=>{if(e.target===celebrateOverlay)celebrateOverlay.classList.remove('show');});
+
+// ── AUDIO ────────────────────────────────────────────────────────────────────
+let audioCtx=null;
+function getCtx(){if(!audioCtx){audioCtx=new(window.AudioContext||window.webkitAudioContext)();}if(audioCtx.state==='suspended')audioCtx.resume();return audioCtx;}
+function playKick(){const ctx=getCtx(),o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.setValueAtTime(140,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(45,ctx.currentTime+.15);g.gain.setValueAtTime(1,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.35);o.connect(g).connect(ctx.destination);o.start();o.stop(ctx.currentTime+.35);}
+function playSnare(){const ctx=getCtx(),bs=ctx.sampleRate*.2,buf=ctx.createBuffer(1,bs,ctx.sampleRate),d=buf.getChannelData(0);for(let i=0;i<bs;i++)d[i]=(Math.random()*2-1)*(1-i/bs);const n=ctx.createBufferSource();n.buffer=buf;const f=ctx.createBiquadFilter();f.type='highpass';f.frequency.value=1000;const g=ctx.createGain();g.gain.setValueAtTime(.8,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.2);n.connect(f).connect(g).connect(ctx.destination);n.start();const o=ctx.createOscillator();o.type='triangle';o.frequency.value=180;const og=ctx.createGain();og.gain.setValueAtTime(.4,ctx.currentTime);og.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.12);o.connect(og).connect(ctx.destination);o.start();o.stop(ctx.currentTime+.12);}
+function playHihat(){const ctx=getCtx(),bs=ctx.sampleRate*.08,buf=ctx.createBuffer(1,bs,ctx.sampleRate),d=buf.getChannelData(0);for(let i=0;i<bs;i++)d[i]=Math.random()*2-1;const n=ctx.createBufferSource();n.buffer=buf;const f=ctx.createBiquadFilter();f.type='highpass';f.frequency.value=6000;const g=ctx.createGain();g.gain.setValueAtTime(.5,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.06);n.connect(f).connect(g).connect(ctx.destination);n.start();}
+function playClick(freq,vol=.25){const ctx=getCtx(),o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(vol,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.15);o.connect(g).connect(ctx.destination);o.start();o.stop(ctx.currentTime+.15);}
+
+// ── HERO DRUM ────────────────────────────────────────────────────────────────
+const heroDrum=document.getElementById('heroDrum'),heroRipple=document.getElementById('heroRipple'),hitCounter=document.getElementById('hitCounter');
+const hmsgs=["nice hit.","again!","keep the beat.","you've got rhythm.","that's the spirit.","one more.","drummer's instinct.","love that energy."];
+let hits=0;
+function hitHeroDrum(){hits++;heroRipple.classList.remove('animate');void heroRipple.offsetWidth;heroRipple.classList.add('animate');playKick();hitCounter.textContent=hits+" hit"+(hits>1?"s":"")+" — "+hmsgs[Math.min(hits-1,hmsgs.length-1)];}
+heroDrum.addEventListener('click',hitHeroDrum);
+heroDrum.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();hitHeroDrum();}});
+
+// ── DRUM KIT ─────────────────────────────────────────────────────────────────
+document.getElementById('padKick').addEventListener('click',playKick);
+document.getElementById('padSnare').addEventListener('click',playSnare);
+document.getElementById('padHihat').addEventListener('click',playHihat);
+window.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(k==='j')playKick();if(k==='k')playSnare();if(k==='l')playHihat();});
+
+// ── OLD CIRCUIT ───────────────────────────────────────────────────────────────
+const circuitNodes=Array.from(document.querySelectorAll('.circuit-node'));
+const circuitWires=Array.from(document.querySelectorAll('.circuit-wire'));
+const bulb=document.getElementById('bulb'),circuitHint=document.getElementById('circuitHint');
+let nextExpected=0;
+function activateNode(node){
+  const idx=parseInt(node.dataset.index,10);
+  if(idx!==nextExpected){node.style.transform='translateX(-4px)';setTimeout(()=>{node.style.transform='';},120);return;}
+  node.classList.add('on');playClick(440+idx*110);
+  const wire=circuitWires.find(w=>parseInt(w.dataset.wire,10)===idx);if(wire)wire.classList.add('on');
+  nextExpected++;circuitHint.textContent=nextExpected+" / 3 NODES CONNECTED";
+  if(nextExpected===circuitNodes.length){bulb.classList.add('lit');bulb.textContent='●';circuitHint.textContent="CIRCUIT COMPLETE — NICE WORK, ENGINEER";playClick(880);setTimeout(()=>showCelebration('Happy Father\'s Day, Daddy! 💡','CIRCUIT CLOSED — LOVE YOU TO THE MOON AND BACK'),350);}
+}
+circuitNodes.forEach(n=>{n.addEventListener('click',()=>activateNode(n));n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activateNode(n);}});});
+document.getElementById('circuitReset').addEventListener('click',()=>{nextExpected=0;circuitNodes.forEach(n=>n.classList.remove('on'));circuitWires.forEach(w=>w.classList.remove('on'));bulb.classList.remove('lit');bulb.textContent='○';circuitHint.textContent="0 / 3 NODES CONNECTED";});
+
+// ── DAD CIRCUIT ───────────────────────────────────────────────────────────────
+const dadTraits=[
+  {label:'PATIENT',   icon:'🧘', msg:"You never once made me feel like a burden for asking questions — not once. That kind of patience is rare, and it shaped how I treat people."},
+  {label:'CURIOUS',   icon:'🔭', msg:"You got excited about ideas. That excitement was contagious. It's why I can't walk past an interesting problem without wanting to dig in."},
+  {label:'BUILDER',   icon:'🔧', msg:"You didn't just fix things — you made them better. That's the engineering mindset, and you lived it before I even had a word for it."},
+  {label:'FUNNY',     icon:'😄', msg:"The silly jokes, the terrible puns, the dad humour that I pretend to roll my eyes at but secretly find so endearing. Never stop."},
+  {label:'PRESENT',   icon:'🤝', msg:"You showed up. For the boring stuff, the hard stuff, the stuff that didn't seem like a big deal but was. That's the whole job right there."},
+  {label:'FEARLESS',  icon:'🚀', msg:"You left everything familiar and built a whole new life from scratch. That takes a kind of courage I'm still learning how to have."},
+];
+
+const dcGrid=document.getElementById('dcGrid');
+const dcOutput=document.getElementById('dcOutput');
+const dcOutputLabel=document.getElementById('dcOutputLabel');
+const dcOutputMsg=document.getElementById('dcOutputMsg');
+let activeTrait=null;
+let dcUnlocked=0;
+
+dadTraits.forEach((trait,i)=>{
+  // trait node (left or right column depending on even/odd)
+  const node=document.createElement('div');
+  node.className='dc-trait mono';
+  node.innerHTML=`<span style="font-size:18px">${trait.icon}</span><br>${trait.label}`;
+  node.setAttribute('tabindex','0');
+  node.setAttribute('role','button');
+
+  // wire column segment (middle column for this row)
+  const wireCol=document.createElement('div');
+  wireCol.className='dc-wire-col';
+  const seg=document.createElement('div');
+  seg.className='dc-wire-seg';
+  seg.id='dcSeg'+i;
+  seg.style.height='50px';
+  wireCol.appendChild(seg);
+
+  // horizontal connector node placeholder (right side — just the trait again but as output indicator)
+  const nodeR=document.createElement('div');
+  nodeR.className='dc-trait mono';
+  nodeR.style.opacity='.3';
+  nodeR.id='dcNodeR'+i;
+  nodeR.innerHTML=`DAD`;
+
+  function activate(){
+    // deactivate previous
+    if(activeTrait!==null){
+      document.querySelectorAll('.dc-trait').forEach(el=>el.classList.remove('active'));
+      document.querySelectorAll('.dc-wire-seg').forEach(el=>el.classList.remove('lit'));
+      document.querySelectorAll('[id^="dcNodeR"]').forEach(el=>{el.style.opacity='.3';el.style.color='';});
+    }
+    activeTrait=i;
+    node.classList.add('active');
+    seg.classList.add('lit');
+    nodeR.style.opacity='1';
+    nodeR.style.color='var(--brass-light)';
+    nodeR.innerHTML='YOU ❤️';
+
+    dcOutput.classList.add('lit');
+    dcOutputLabel.textContent=trait.icon+' '+trait.label+' — OUTPUT';
+    dcOutputMsg.textContent=trait.msg;
+    playClick(440+i*55);
+    dcUnlocked++;
+    if(dcUnlocked>=dadTraits.length){
+      setTimeout(()=>showCelebration('All Traits Wired! ⚡','DAD.EXE IS FULLY POWERED'),300);
+    }
+  }
+
+  node.addEventListener('click',activate);
+  node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
+
+  dcGrid.appendChild(node);
+  dcGrid.appendChild(wireCol);
+  dcGrid.appendChild(nodeR);
+});
+
+document.getElementById('dcReset').addEventListener('click',()=>{
+  activeTrait=null;dcUnlocked=0;
+  document.querySelectorAll('.dc-trait').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.dc-wire-seg').forEach(el=>el.classList.remove('lit'));
+  document.querySelectorAll('[id^="dcNodeR"]').forEach(el=>{el.style.opacity='.3';el.style.color='';el.innerHTML='DAD';});
+  dcOutput.classList.remove('lit');
+  dcOutputLabel.textContent='OUTPUT — TAP A TRAIT TO READ IT';
+  dcOutputMsg.textContent='Select any trait above to complete the circuit and see what it means to me.';
+});
+
+// ── DAD STATS ─────────────────────────────────────────────────────────────────
+const statsData=[
+  {icon:'☕',label:'COFFEES MADE',value:'∞',desc:'Before anyone else was awake. Every single morning.'},
+  {icon:'💸',label:'SILLY THINGS FUNDED',value:'ALL OF THEM',desc:'Every random hobby, phase, and impulse buy — funded without a single eye roll.'},
+  {icon:'📞',label:'CALLS ANSWERED',value:'100%',desc:'Even the "just wanted to hear your voice" ones at 11pm.'},
+  {icon:'🛠️',label:'THINGS FIXED',value:'ALL OF THEM',desc:'If it broke, you fixed it. That was just the deal.'},
+  {icon:'🎓',label:'DEGREES FUNDED',value:'1 (SO FAR)',desc:'Engineering school, no questions asked.'},
+  {icon:'❤️',label:'PROUD DAD MOMENTS',value:'COUNTING',desc:'Every single one noted and treasured.'},
+];
+
+const statsGrid=document.getElementById('statsGrid');
+statsData.forEach(s=>{
+  const card=document.createElement('div');
+  card.className='stat-card';
+  card.innerHTML=`<div class="stat-icon">${s.icon}</div><div class="stat-label mono">${s.label}</div><div class="stat-value">${s.value}</div><div class="stat-desc">${s.desc}</div>`;
+  card.addEventListener('click',()=>{
+    if(!card.classList.contains('revealed')){
+      card.classList.add('revealed');
+      playClick(520+Math.random()*100);
+    }
+  });
+  statsGrid.appendChild(card);
+});
+
+// ── MEMORY CARDS ──────────────────────────────────────────────────────────────
+const memoryData=[
+  {icon:'🏢',front:'Office Visits',back:'"Can you explain what you\'re working on?" I asked that every time — and you always stopped everything and told me. That\'s where engineering clicked for me.'},
+  {icon:'🌌',front:'Looking at the Sky',back:'You\'re the one who made me look up. Before I knew the names of stars or planets, I knew they mattered because you made them matter.'},
+  {icon:'✈️',front:'The Big Move',back:'You and Mommy crossed an ocean to give Sanju and me a better life. I think about that more than you know.'},
+  {icon:'🛸',front:'The Drone Story',back:'You built a drone before that was even a normal thing to do. Every time you tell that story I feel like I have to go build something too.'},
+  {icon:'📱',front:'Phone Calls',back:'Sometimes I call just to sit in silence on the line. You get it. You never make me explain why. That means everything.'},
+  {icon:'🎉',front:'Proud Dad Mode',back:'The look on your face when I tell you about something I built or figured out — I work hard partly just to see that look again.'},
+];
+
+const memoryGrid=document.getElementById('memoryGrid');
+const memoryHint=document.getElementById('memoryHint');
+let memFlipped=0;
+
+memoryData.forEach((m,i)=>{
+  const card=document.createElement('div');
+  card.className='memory-card';
+  card.innerHTML=`
+    <div class="memory-card-inner">
+      <div class="memory-front">
+        <div class="memory-front-icon">${m.icon}</div>
+        <div class="memory-front-label mono">${m.front}</div>
+      </div>
+      <div class="memory-back">${m.back}</div>
+    </div>`;
+  card.addEventListener('click',()=>{
+    if(!card.classList.contains('flipped')){
+      card.classList.add('flipped');
+      memFlipped++;
+      playClick(500+i*40);
+      memoryHint.textContent=memFlipped+' / 6 MEMORIES UNLOCKED';
+      if(memFlipped===6){
+        memoryHint.textContent='ALL 6 MEMORIES UNLOCKED ✦';
+        setTimeout(()=>showCelebration('All Memories Unlocked ✦','EVERY ONE KEPT CLOSE'),400);
+      }
+    } else {
+      card.classList.remove('flipped');
+      memFlipped=Math.max(0,memFlipped-1);
+      memoryHint.textContent=memFlipped+' / 6 MEMORIES UNLOCKED — FLIP A CARD';
+    }
+  });
+  memoryGrid.appendChild(card);
+});
+
+// ── DRONE ─────────────────────────────────────────────────────────────────────
+const droneStepData=[{layer:'layerArms',freq:520},{layer:'layerHub',freq:620},{layer:'layerRotors',freq:780}];
+let droneProgress=0;
+function clickStep(idx){
+  if(idx!==droneProgress)return;
+  const stepEl=document.getElementById('droneStep'+idx);
+  document.getElementById(droneStepData[idx].layer).classList.remove('hidden');
+  stepEl.classList.add('done');
+  stepEl.querySelector('.step-label').textContent='STEP 0'+(idx+1)+' — INSTALLED ✓';
+  playClick(droneStepData[idx].freq);
+  droneProgress++;
+  if(droneProgress<3){const next=document.getElementById('droneStep'+droneProgress);next.classList.remove('locked');next.querySelector('.step-label').textContent='STEP 0'+(droneProgress+1)+' — CLICK TO ATTACH';}
+  document.getElementById('droneStatus').textContent=droneProgress+' / 3 PARTS INSTALLED';
+  if(droneProgress===3){document.getElementById('droneStatus').textContent='DRONE COMPLETE — READY FOR TAKEOFF';document.getElementById('droneStatus').classList.add('done');playClick(900);setTimeout(launchDrone,600);}
+}
+[0,1,2].forEach(idx=>document.getElementById('droneStep'+idx).addEventListener('click',()=>clickStep(idx)));
+function launchDrone(){
+  const preview=document.getElementById('dronePreview'),rect=preview.getBoundingClientRect();
+  const flyer=document.createElement('div');
+  flyer.style.cssText=`position:fixed;left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px;z-index:998;pointer-events:none;`;
+  ['layerArms','layerHub','layerRotors'].forEach(id=>{const c=document.getElementById(id).cloneNode(true);c.style.cssText='position:absolute;inset:0;';flyer.appendChild(c);});
+  document.body.appendChild(flyer);preview.style.opacity='.15';
+  flyer.style.animation='droneTakeoff 2s ease-in forwards';
+  playClick(700);setTimeout(()=>playClick(950),200);setTimeout(()=>playClick(1200),400);
+  setTimeout(()=>{flyer.remove();preview.style.opacity='';document.getElementById('droneStatus').textContent='WHEELS UP — JUST LIKE YOU TAUGHT ME';},2050);
+}
+document.getElementById('droneReset').addEventListener('click',()=>{
+  droneProgress=0;
+  ['layerArms','layerHub','layerRotors'].forEach(id=>document.getElementById(id).classList.add('hidden'));
+  [0,1,2].forEach(idx=>{const s=document.getElementById('droneStep'+idx);s.classList.remove('done');if(idx===0){s.classList.remove('locked');s.querySelector('.step-label').textContent='STEP 01 — CLICK TO ATTACH';}else{s.classList.add('locked');s.querySelector('.step-label').textContent='STEP 0'+(idx+1)+' — LOCKED';}});
+  const st=document.getElementById('droneStatus');st.textContent='0 / 3 PARTS INSTALLED';st.classList.remove('done');
+});
+
+// ── STARFIELD ─────────────────────────────────────────────────────────────────
+const starfield=document.getElementById('starfield');
+for(let i=0;i<80;i++){const d=document.createElement('div');d.className='star-dot';const sz=Math.random()<.7?1:Math.random()<.5?2:3;d.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;opacity:${.3+Math.random()*.7}`;starfield.appendChild(d);}
+
+// ── ROCKET ────────────────────────────────────────────────────────────────────
+const rocketMsg=document.getElementById('rocketMsg'),rocketChar=document.getElementById('rocketChar'),rocketBtn=document.getElementById('rocketLaunchBtn'),rocketStatus=document.getElementById('rocketStatus'),rocketSVG=document.getElementById('rocketSVG'),rocketFlame=document.getElementById('rocketFlame');
+let rocketFired=false;
+rocketMsg.addEventListener('input',()=>{rocketChar.textContent=rocketMsg.value.length+' / 160';});
+rocketBtn.addEventListener('click',()=>{
+  if(rocketFired)return;
+  const msg=rocketMsg.value.trim();
+  if(!msg){rocketStatus.textContent='WRITE SOMETHING FIRST ↑';return;}
+  rocketFired=true;rocketBtn.disabled=true;rocketStatus.textContent='IGNITION SEQUENCE STARTED...';
+  rocketSVG.classList.add('ignite');rocketFlame.classList.add('on');playClick(200);
+  setTimeout(()=>{playClick(150);rocketStatus.textContent='T-MINUS 3...';},400);
+  setTimeout(()=>{playClick(130);rocketStatus.textContent='T-MINUS 2...';},900);
+  setTimeout(()=>{playClick(110);rocketStatus.textContent='T-MINUS 1...';},1400);
+  setTimeout(()=>{
+    rocketStatus.textContent='LIFTOFF 🚀';rocketSVG.classList.remove('ignite');rocketSVG.classList.add('launch');playClick(300);setTimeout(()=>playClick(400),150);setTimeout(()=>playClick(600),350);
+    const chars=msg.split('');const sample=chars.filter((_,i)=>i%Math.max(1,Math.floor(chars.length/18))===0).slice(0,18);
+    const br=rocketBtn.getBoundingClientRect();
+    sample.forEach((ch,i)=>{
+      const s=document.createElement('div');s.className='msg-star';s.textContent=ch;
+      const angle=Math.random()*360,dist=80+Math.random()*160;
+      s.style.cssText=`left:${br.left+Math.random()*br.width}px;top:${br.top}px;color:${confettiColors[i%confettiColors.length]};animation-duration:${1.2+Math.random()*.8}s;animation-delay:${i*.04}s;--dx:${Math.cos(angle*Math.PI/180)*dist}px;--dy:${(-dist*1.2-Math.random()*80)}px;`;
+      document.body.appendChild(s);setTimeout(()=>s.remove(),2500);
+    });
+  },1900);
+  setTimeout(()=>{rocketStatus.classList.add('sent');rocketStatus.textContent='✦ MESSAGE RECEIVED — SOMEWHERE BETWEEN HERE AND THE MOON ✦';launchConfetti();},4200);
+});
+
+
+</script>
+</body>
+</html>
